@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Телефон и ПК</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #667eea;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .block {
+            background: white;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 20px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+        
+        h1 {
+            font-size: 30px;
+            margin: 10px 0;
+            color: #333;
+        }
+        
+        p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            width: 100%;
+            max-width: 250px;
+            margin: 10px auto;
+            display: block;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-appearance: none;
+            touch-action: manipulation; /* Важно для iOS */
+        }
+        
+        button:active {
+            background: #555;
+            transform: scale(0.95);
+        }
+        
+        .count {
+            font-size: 25px;
+            color: #764ba2;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        .info {
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="block">
+        <h1>📱 ТЕСТ</h1>
+        <p>Нажимай на кнопку!</p>
+        
+        <button>ТЫК</button>
+        
+        <div class="count" id="counter">0</div>
+        
+        <p class="info">Работает везде: iPhone, Android, ПК</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let num = 0;
+            const button = document.querySelector('button');
+            const counter = document.querySelector('#counter');
+
+            function clickMe() {
+                num++;
+                counter.innerHTML = num;
+                alert('Нажал! Счет: ' + num);
+            }
+
+            // Добавляем обработчики событий
+            button.addEventListener('click', clickMe);
+            button.addEventListener('touchstart', clickMe);
+            button.addEventListener('touchend', clickMe); // Дополнительно для iOS
+        });
+    </script>
+</body>
+</html>
